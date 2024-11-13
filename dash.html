@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Page Grid with Icons and Explore Button</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="stylee.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .navbar{
+            position: fixed;
+            top: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8em;
+            color: white;
+            background: linear-gradient(135deg, #2c3e50, #16a085);
+            text-transform: capitalize;
+            border: 2px solid #f0f0f0;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, background 0.3s ease;
+        }
+
+        /* Add hover effect with scale and shadow */
+        .box:hover {
+            transform: scale(1);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+       /* Define fade-in animations with slide effect */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Explore button styling */
+.explore-btn {
+    margin-top: 1em;
+    padding: 0.5em 1.2em;
+    font-size: 0.8em;
+    color: #ffffff;
+    background: #e74c3c;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    position: relative;
+}
+
+/* Hover effect with scale and shadow */
+.explore-btn:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Click effect with bounce animation */
+.explore-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional: Pulsing animation effect */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Apply pulse animation */
+.explore-btn.pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+
+/* Apply animations to the boxes */
+.box:nth-child(1) {
+    animation: fadeInLeft 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.box:nth-child(2) {
+    animation: fadeInRight 1s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.box:nth-child(3) {
+    animation: fadeInLeft 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.box:nth-child(4) {
+    animation: fadeInRight 1s ease forwards;
+    animation-delay: 0.8s;
+}
+a{
+    text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+<div class="navbar">
+
+    <a href="#home" class="logo"><i class="ri-hearts-fill"></i>MedVault</h1></a>
+
+<div class="center">
+
+        <ul class="nav-items">
+            <li><a href="home.html"><i class="ri-dashboard-line"></i>Home</a></li>
+            <li><a href="#track"><i class="ri-pulse-ai-line"></i>Track</a></li>
+            <li><a href="#"><i class="ri-customer-service-2-line"></i>Support</a></li>
+            <li><a href="#"><i class="ri-settings-2-line"></i>Settings</a></li>
+        </ul>
+
+</div>
+
+    <a href="login.html" class="login"><i class="ri-user-add-line"></i>Login</a>
+</div>
+
+</div>
+
+<div class="container">
+    <div class="box">
+        <a href="health-tips.html" class="content">
+            <i class="fas fa-heartbeat"></i>
+            <span>Health Tips</span>
+            <button class="explore-btn">Explore</button>
+        </a>
+    </div>
+    <div class="box">
+        <a href="yoga.html" class="content">
+            <i class="fas fa-child"></i>
+            <span>Yoga</span>
+            <button class="explore-btn">Explore</button>
+        </a>
+    </div>
+    <div class="box">
+        <a href="calorie-tracker.html" class="content">
+            <i class="fas fa-fire"></i>
+            <span>Calories</span>
+            <button class="explore-btn">Explore</button>
+        </a>
+    </div>
+    <div class="box">
+        <a href="https://bmicalctr.netlify.app/" target="_blank" class="content">
+            <i class="fas fa-weight"></i>
+            <span>BMI</span>
+            <button class="explore-btn">Explore</button>
+        </a>
+    </div>
+</div>
+
+
+</body>
+</html>
